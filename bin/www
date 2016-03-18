@@ -10,6 +10,9 @@ var http = require('http');
 var redis = require('redis');
 
 var client= redis.createClient();
+var Eureca = require('eureca.io');
+var eurecaServer = new Eureca.Server({allow:['sendSMS']});
+var eurecaClient = null;
 
 
 /**
@@ -111,4 +114,19 @@ client.on("error", function (err) {
 
 client.on("message", function(channel, message){
   console.log("client channel recieve from channel : %s, the message : %s", channel, message);
+  eurecaClient.sendSMS();
 });
+
+
+
+eurecaServer.attach(server);
+
+
+//functions under "exports" namespace will be exposed to client side
+eurecaServer.exports.initializeConnection = function () {
+  console.log('Hello from client');
+
+  eurecaClient = this.clientProxy;
+  eurecaClient.sendSMS();
+}
+
