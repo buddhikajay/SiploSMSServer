@@ -114,7 +114,7 @@ client.on("error", function (err) {
 
 client.on("message", function(channel, message){
   console.log("client channel recieve from channel : %s, the message : %s", channel, message);
-  eurecaClient.sendSMS();
+  eurecaClient.sendSMS('94715776316', 'test message');
 });
 
 
@@ -127,6 +127,6 @@ eurecaServer.exports.initializeConnection = function () {
   console.log('Hello from client');
 
   eurecaClient = this.clientProxy;
-  eurecaClient.sendSMS();
+  eurecaClient.sendSMS('94715776316', 'test message');
 }
 
