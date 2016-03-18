@@ -93,6 +93,7 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
+//redis
 
 client.subscribe("sms_channel");
 
@@ -102,10 +103,10 @@ client.on("error", function (err) {
 
 //client.set("string key", "string val", redis.print);
 
-client.get("sms_channel", function(err, reply) {
-  // reply is null when the key is missing
-  console.log(reply);
-});
+//client.get("sms_channel", function(err, reply) {
+//  // reply is null when the key is missing
+//  console.log(reply);
+//});
 
 
 client.on("message", function(channel, message){
