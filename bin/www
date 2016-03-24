@@ -114,7 +114,8 @@ client.on("error", function (err) {
 
 client.on("message", function(channel, message){
   console.log("client channel recieve from channel : %s, the message : %s", channel, message);
-  eurecaClient.sendSMS('94715776316', 'test message');
+  var jsonMessage = JSON.parse(message);
+  eurecaClient.sendSMS(jsonMessage.to, jsonMessage.message);
 });
 
 
