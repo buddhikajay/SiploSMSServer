@@ -125,7 +125,7 @@ eurecaServer.attach(server);
 
 //functions under "exports" namespace will be exposed to client side
 eurecaServer.exports.initializeConnection = function () {
-  console.log('Hello from client');
+  console.log('Client Connected');
 
   eurecaClient = this.clientProxy;
   eurecaClient.sendSMS('94715776316', 'SMS Client Connected');
