@@ -128,6 +128,6 @@ eurecaServer.exports.initializeConnection = function () {
   console.log('Hello from client');
 
   eurecaClient = this.clientProxy;
-  eurecaClient.sendSMS('94715776316', 'test message');
+  eurecaClient.sendSMS('94715776316', 'SMS Client Connected');
 }
 
